@@ -1,0 +1,57 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "http://jsonschema.net",
+  "properties": {
+    "pluginLocations": {
+      "type": "object",
+      "properties": {
+        "config": {
+          "type": "object",
+          "properties": {
+            "_inspector": {
+              "type": "object",
+              "legend": "Inspector",
+              "properties": {
+                "_isEnabled": {
+                  "type": "boolean",
+                  "default": true,
+                  "title": "Is enabled",
+                  "inputType": "Checkbox",
+                  "help": "Enable Inspector globally"
+                },
+                "_disableOnTouch": {
+                  "type": "boolean",
+                  "default": false,
+                  "title": "Disable on touch",
+                  "inputType": "Checkbox",
+                  "help": "Disable Inspector on touch devices"
+                },
+                "_tracUrl": {
+                  "type": "string",
+                  "default": "",
+                  "title": "Trac URL",
+                  "inputType": "Text",
+                  "help": "Enter a URL to make Inspector link to a specific Trac"
+                },
+                "_elementsToInspect": {
+                  "type": "array",
+                  "default": [
+                    "menu",
+                    "page",
+                    "article",
+                    "block",
+                    "component"
+                  ],
+                  "title": "Elements to inspect",
+                  "inputType": "List",
+                  "help": "List the rendered views which should be inspectable (default: menu, page, article, block, component)"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
