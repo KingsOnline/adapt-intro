@@ -1,12 +1,15 @@
 define(function(require) {
 
     var Adapt = require('coreJS/adapt');
-    var Backbone = require('backbone');
-    var introJs = require('extensions/adapt-introjs/js/intro.min.js');
+    var pageView = require('core/js/views/pageView');
+    var introJs = require('./intro');
 
     // This should add/update progress on menuView
-    Adapt.on('adapt:initialize', function(view) {
-    	introJs().start();
+
+	Adapt.on("pageView:postRender", function() {
+    	if($("#wrapper").hasClass("location-page")){
+    		introJs().start();
+    	}
     });
 
 });
