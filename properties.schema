@@ -6,26 +6,50 @@
     "pluginLocations": {
       "type": "object",
       "properties": {
-        "config": {
+        "course": {
           "type": "object",
           "properties": {
-            "_inspector": {
+            "_introJs": {
               "type": "object",
-              "legend": "Inspector",
+              "legend": "IntroJs",
               "properties": {
                 "_isEnabled": {
                   "type": "boolean",
                   "default": true,
                   "title": "Is enabled",
                   "inputType": "Checkbox",
-                  "help": "Enable Inspector globally"
+                  "help": "Enable IntroJs globally"
                 },
-                "_disableOnTouch": {
-                  "type": "boolean",
-                  "default": false,
-                  "title": "Disable on touch",
-                  "inputType": "Checkbox",
-                  "help": "Disable Inspector on touch devices"
+                "_steps": {
+                  "type": "array",
+                  "required": false,
+                  "title": "Resources Items",
+                  "items": {
+                    "type": "object",
+                    "required": false,
+                    "title": "Items",
+                    "properties": {
+                      "_element": {
+                        "type": "string",
+                        "require": true,
+                        "title": "Element",
+                        "inputType": "text",
+                        "validators": [
+                          "required"
+                        ]
+                      },
+                      "text": {
+                        "type": "string",
+                        "require": true,
+                        "title": "Text that shoudl display here",
+                        "inputType": "Text",
+                        "validators": [
+                          "required"
+                        ],
+                        "translatable": true
+                      }
+                    }
+                  }
                 },
                 "_tracUrl": {
                   "type": "string",
