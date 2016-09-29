@@ -6,6 +6,21 @@
     "pluginLocations": {
       "type": "object",
       "properties": {
+        "config": {
+          "type": "object"
+        },
+        "contentobject": {
+          "type": "object"
+        },
+        "article": {
+          "type": "object"
+        },
+        "block": {
+          "type": "object"
+        },
+        "component": {
+          "type": "object"
+        },
         "course": {
           "type": "object",
           "properties": {
