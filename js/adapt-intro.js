@@ -2,23 +2,20 @@ define(function(require) {
 
     var Adapt = require('coreJS/adapt');
     var pageView = require('core/js/views/pageView');
-    var introJs = require('./intro');
+    var introJsLibary = require('./intro');
 
     // This should add/update progress on menuView
 
 	Adapt.on("pageView:ready", function() {
-		console.log('hello world');
-    	if($("#wrapper").hasClass("location-page")){
-	    	assignTutorial("page-level-progress-navigation","This bar shows your progress on the page. You can click it to see what components you have left to complete.");
-			assignTutorial("page-header","The content of the course goes here. Scroll down to read it!");
-
-    		introJs().start();
+		var introJs = Adapt.course.get('_globals')._introJs;
+        console.log(introJs);
+    	if($("#wrapper").hasClass("location-page") && introJs._isEnabled && introJs._steps[0] != null){
+           for (i = 0; i < introJs._steps.length; i++) { 
+                assignTutorial(introJs._steps[i]._element, introJs._steps[i].text);
+            }
+    		introJsLibary().start();
     	}
-    }); function myFunction() {
-
-}
-
-
+    });
 
 });	
 
