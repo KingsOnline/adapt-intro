@@ -7,7 +7,7 @@ define(function(require) {
     // This should add/update progress on menuView
 
 	Adapt.on("pageView:ready", function() {
-		var introJs = Adapt.course.get('_globals')._introJs;
+		var introJs = Adapt.course.get('_globals')._extensions._introJs;
         console.log(introJs);
     	if($("#wrapper").hasClass("location-page") && introJs._isEnabled && introJs._steps[0] != null){
            for (i = 0; i < introJs._steps.length; i++) { 
@@ -16,7 +16,6 @@ define(function(require) {
     		introJsLibary().start();
     	}
     });
-
 });	
 
 function assignTutorial(className, text){

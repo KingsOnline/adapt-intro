@@ -33,7 +33,7 @@
                         "type": "string",
                         "require": true,
                         "title": "Element",
-                        "inputType": "text",
+                        "inputType": "Text",
                         "validators": [
                           "required"
                         ]
