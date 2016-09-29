@@ -6,6 +6,7 @@
   "properties": {
     "pluginLocations": {
       "type": "object",
+      "required":true,
       "properties": {
         "config": {
           "type": "object"
@@ -39,7 +40,7 @@
                 "_steps": {
                   "type": "array",
                   "required": false,
-                  "title": "Resources Items",
+                  "title": "Introduction steps",
                   "items": {
                     "type": "object",
                     "required": false,
@@ -47,21 +48,17 @@
                     "properties": {
                       "_element": {
                         "type": "string",
-                        "require": true,
+                        "require": false,
                         "title": "Element",
                         "inputType": "Text",
-                        "validators": [
-                          "required"
-                        ]
+                        "validators": []
                       },
                       "text": {
                         "type": "string",
-                        "require": true,
-                        "title": "Text that shoudl display here",
+                        "require": false,
+                        "title": "Text that should display here",
                         "inputType": "Text",
-                        "validators": [
-                          "required"
-                        ],
+                        "validators": [],
                         "translatable": true
                       }
                     }
