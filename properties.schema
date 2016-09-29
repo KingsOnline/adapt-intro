@@ -50,26 +50,6 @@
                       }
                     }
                   }
-                },
-                "_tracUrl": {
-                  "type": "string",
-                  "default": "",
-                  "title": "Trac URL",
-                  "inputType": "Text",
-                  "help": "Enter a URL to make Inspector link to a specific Trac"
-                },
-                "_elementsToInspect": {
-                  "type": "array",
-                  "default": [
-                    "menu",
-                    "page",
-                    "article",
-                    "block",
-                    "component"
-                  ],
-                  "title": "Elements to inspect",
-                  "inputType": "List",
-                  "help": "List the rendered views which should be inspectable (default: menu, page, article, block, component)"
                 }
               }
             }
