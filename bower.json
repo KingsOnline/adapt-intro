@@ -1,6 +1,6 @@
 {
   "name": "adapt-introjs",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "framework": "^2.0.0",
   "displayName": "IntroJS",
   "extension": "IntroJS",
