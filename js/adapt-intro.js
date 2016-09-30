@@ -9,6 +9,7 @@ define(function(require) {
 	Adapt.on("pageView:ready", function() {
 		var introJs = Adapt.course.get('_globals')._introJs;
         console.log(Adapt.course);
+        console.log(Adapt.course.get('_globals'));
         if(introJs === undefined) return;
     	if($("#wrapper").hasClass("location-page") && introJs._isEnabled && introJs._steps[0] != null){
            for (i = 0; i < introJs._steps.length; i++) { 

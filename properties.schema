@@ -3,6 +3,8 @@
   "$schema": "http://json-schema.org/draft-04/schema",
   "id": "http://jsonschema.net",
   "required": false,
+    "globals": {
+  },
   "properties": {
     "pluginLocations": {
       "type": "object",
@@ -28,6 +30,7 @@
           "properties": {
             "_introJs": {
               "type": "object",
+              "required": false,
               "legend": "IntroJs",
               "properties": {
                 "_isEnabled": {
