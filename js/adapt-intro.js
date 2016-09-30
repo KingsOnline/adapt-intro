@@ -7,7 +7,7 @@ define(function(require) {
     // This should add/update progress on menuView
 
 	Adapt.on("pageView:ready", function() {
-		var introJs = Adapt.course.get('_globals')._introJs;
+		var introJs = Adapt.course.get('_globals')._extensions._introJs;
         console.log(Adapt.course);
         console.log(Adapt.course.get('_globals'));
         if(introJs === undefined) return;
