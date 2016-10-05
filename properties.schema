@@ -28,7 +28,7 @@
         "course": {
           "type": "object",
           "properties": {
-            "_introJs": {
+            "_intro": {
               "type": "object",
               "required": false,
               "legend": "IntroJs",
