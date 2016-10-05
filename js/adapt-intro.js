@@ -20,6 +20,7 @@ define(function(require) {
 
 function assignTutorial(className, text){
     var h1 = document.getElementsByClassName(className)[0];
+    if (h1 === undefined) return;
     var att = document.createAttribute("data-intro");
     att.value = text;
     h1.setAttributeNode(att);

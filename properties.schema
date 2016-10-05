@@ -36,7 +36,7 @@
                 "_isEnabled": {
                   "type": "boolean",
                   "default": true,
-                  "title": "Is enabled",
+                  "title": "Enable Intro",
                   "inputType": "Checkbox",
                   "help": "Enable IntroJs globally"
                 },
