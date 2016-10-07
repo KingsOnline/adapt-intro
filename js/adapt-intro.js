@@ -17,7 +17,7 @@ define([ "coreJS/adapt", "./intro" ], function(Adapt, introJs) {
             if(intro === undefined) return;
             if($("#wrapper").hasClass("location-page") && intro._isEnabled && intro._steps[0] != null){
                for (i = 0; i < intro._steps.length; i++) {
-                    assignTutorial(intro._steps[i]._element, intro._steps[i].text);
+                    this.assignTutorial(intro._steps[i]._element, intro._steps[i].text);
                 }
             }
         },
@@ -31,18 +31,21 @@ define([ "coreJS/adapt", "./intro" ], function(Adapt, introJs) {
               console.log('exit');
               $('.navigation-intro').attr('disabled',false);
           });
+        },
+
+        assignTutorial: function(className, text){
+          introJs().refresh();
+          console.log(document.getElementsByClassName(className));
+            var h1 = document.getElementsByClassName(className)[0];
+            console.log(h1);
+            if (h1 === undefined) return;
+            var att = document.createAttribute("data-intro");
+            att.value = text;
+            h1.setAttributeNode(att);
         }
     });
 
-    function assignTutorial(className, text){
-        var h1 = document.getElementsByClassName(className)[0];
-        if (h1 === undefined) return;
-        var att = document.createAttribute("data-intro");
-        att.value = text;
-        h1.setAttributeNode(att);
-    }
-
-    Adapt.once("adapt:initialize", function() {
+    Adapt.once("pageView:ready", function() {
         var config = Adapt.course.get("_intro");
         if (!config) return;
         new IntroView({ model: new Backbone.Model() });
