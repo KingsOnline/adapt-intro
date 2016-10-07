@@ -1,7 +1,6 @@
 define(function(require) {
 
     var Adapt = require('coreJS/adapt');
-    var pageView = require('core/js/views/pageView');
     var introJs = require('./intro');
 
     // This should add/update progress on menuView
@@ -16,12 +15,12 @@ define(function(require) {
     		introJs().start();
     	}
     });
-});	
 
-function assignTutorial(className, text){
-    var h1 = document.getElementsByClassName(className)[0];
-    if (h1 === undefined) return;
-    var att = document.createAttribute("data-intro");
-    att.value = text;
-    h1.setAttributeNode(att);
-}
+    function assignTutorial(className, text){
+        var h1 = document.getElementsByClassName(className)[0];
+        if (h1 === undefined) return;
+        var att = document.createAttribute("data-intro");
+        att.value = text;
+        h1.setAttributeNode(att);
+    }
+});
