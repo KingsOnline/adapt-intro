@@ -24,20 +24,16 @@ define([ "coreJS/adapt", "./intro" ], function(Adapt, introJs) {
 
         startIntro: function(){
           $('.navigation-intro').attr('disabled',true);
-            introJs().start().oncomplete(function() {
-              console.log('complete');
-              $('.navigation-intro').attr('disabled',false);
-            }).onexit(function() {
-              console.log('exit');
-              $('.navigation-intro').attr('disabled',false);
+
+          introJs().start().oncomplete(function() {
+            $('.navigation-intro').attr('disabled',false);
+          }).onexit(function() {
+            $('.navigation-intro').attr('disabled',false);
           });
         },
 
         assignTutorial: function(className, text){
-          introJs().refresh();
-          console.log(document.getElementsByClassName(className));
             var h1 = document.getElementsByClassName(className)[0];
-            console.log(h1);
             if (h1 === undefined) return;
             var att = document.createAttribute("data-intro");
             att.value = text;
