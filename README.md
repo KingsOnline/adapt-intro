@@ -13,8 +13,8 @@ Once found add the class name to either the Framework or Authoring Tool and then
 
 Intro.js will navigate through elements in DOM order.
 
+To start the tutorial presss the '?' icon.
+
 ## Todo
 
-* Enable selecting the page it triggers on
-* Create an icon that can relaunch introduction
-* Prevent relaunching on refresh
+* Enable selecting the page that shows icon
