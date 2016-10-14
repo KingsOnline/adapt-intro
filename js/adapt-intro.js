@@ -42,10 +42,19 @@ define([ "coreJS/adapt", "./intro" ], function(Adapt, introJs) {
     });
 
     Adapt.on("pageView:ready", function() {
+        if(this.course.attributes._intro._showOn != undefined) { // if not defined assume all pages
+          if(this.course.attributes._intro._showOn.length > 0){
+            if(jQuery.inArray(this.location._currentId, this.course.attributes._intro._showOn) === -1){
+              $('.navigation-intro').hide();
+              return; // skip the next if statement that creates adapt-intro
+            }
+          }
+        }
+
         if($('.navigation-intro').length){ // If you have been on a page before show.
           $('.navigation-intro').show();
         } else { // create the element when you load into your first page.
-          var jsonExists = Adapt.course.get("_intro");
+          var jsonExists = this.course.get("_intro");
           if (!jsonExists) return;
           new IntroView({ model: new Backbone.Model() });
         }
