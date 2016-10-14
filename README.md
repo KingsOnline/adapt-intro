@@ -7,13 +7,15 @@ An extension that uses [intro.js](http://introjs.com/) with Adapt to present an 
 
 ## Instructions
 
-This extension targets elements by the class so you need to find out the name of the class of each element you want to target. 
+This extension targets elements by the class so you need to find out the name of the class of each element you want to target.
 
 Once found add the class name to either the Framework or Authoring Tool and then add a description.
 
 Intro.js will navigate through elements in DOM order.
 
 To start the tutorial presss the '?' icon.
+
+**Pro tip -** add a adapt-intro.less file to your theme to allow you to easily customize the introduction to match your look and style.
 
 ## Todo
 
