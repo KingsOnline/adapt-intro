@@ -11,19 +11,21 @@ define([ "coreJS/adapt", "./intro" ], function(Adapt, introJs) {
             });
         },
 
-        getElements: function() {
-            var intro = Adapt.course.attributes._intro;
-            if($("#wrapper").hasClass("location-page") && intro._isEnabled && intro._steps[0] != null){
-               for (i = 0; i < intro._steps.length; i++) {
-                    this.assignTutorial(intro._steps[i]._element, intro._steps[i].text);
+        getElements: function(path) {
+            if($("#wrapper").hasClass("location-page") && path._isEnabled && path._steps[0] != null){
+               for (i = 0; i < path._steps.length; i++) {
+                    this.assignTutorial(path._steps[i]._element, path._steps[i].text);
                 }
             }
         },
 
         startIntro: function(){
-            this.getElements();
+          var introPath = Adapt.course.attributes._intro;
+            this.getElements(introPath);
+            console.log(introPath._options);
             $('.navigation-intro').attr('disabled',true); // prevents the button being pressed again during introduction.
-            introJs().start().oncomplete(function() {
+            introJs().setOptions(introPath._options).start().oncomplete(function() {
+              console.log(introJs());
               $('.navigation-intro').attr('disabled',false);
             }).onexit(function() {
               $('.navigation-intro').attr('disabled',false);
