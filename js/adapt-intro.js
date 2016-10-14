@@ -14,7 +14,7 @@ define([ "coreJS/adapt", "./intro" ], function(Adapt, introJs) {
         getElements: function(path) {
             if($("#wrapper").hasClass("location-page") && path._isEnabled && path._steps[0] != null){
                for (i = 0; i < path._steps.length; i++) {
-                    this.assignTutorial(path._steps[i]._element, path._steps[i].text);
+                    this.assignIntro(path._steps[i]._element, path._steps[i].text);
                 }
             }
         },
@@ -32,7 +32,7 @@ define([ "coreJS/adapt", "./intro" ], function(Adapt, introJs) {
             });
         },
 
-        assignTutorial: function(className, text){
+        assignIntro: function(className, text){
             var h1 = document.getElementsByClassName(className)[0];
             if (h1 === undefined) return;
             var att = document.createAttribute("data-intro");
