@@ -41,7 +41,7 @@ define([ "coreJS/adapt", "./intro" ], function(Adapt, introJs) {
         }
     });
 
-    Adapt.on("pageView:ready", function() {
+    Adapt.on("pageView:preRender", function() {
         if(this.course.attributes._intro._showOn != undefined) { // if not defined assume all pages
           if(this.course.attributes._intro._showOn.length > 0){
             if(jQuery.inArray(this.location._currentId, this.course.attributes._intro._showOn) === -1){
@@ -60,7 +60,7 @@ define([ "coreJS/adapt", "./intro" ], function(Adapt, introJs) {
         }
     });
 
-    Adapt.on('menuView:ready', function(view) { // hide on menu
+    Adapt.on('menuView:preRender', function(view) { // hide on menu
         $('.navigation-intro').hide();
     });
 
