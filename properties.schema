@@ -3,12 +3,11 @@
   "$schema": "http://json-schema.org/draft-04/schema",
   "id": "http://jsonschema.net",
   "required": false,
-    "globals": {
-  },
+  "globals": {},
   "properties": {
     "pluginLocations": {
       "type": "object",
-      "required":true,
+      "required": true,
       "properties": {
         "config": {
           "type": "object"
@@ -39,6 +38,20 @@
                   "title": "Enable Intro",
                   "inputType": "Checkbox",
                   "help": "Enable IntroJs globally"
+                },
+                "_showOn": {
+                  "type": "array",
+                  "required": false,
+                  "items": {
+                    "_pageId": {
+                      "type": "string",
+                      "require": false,
+                      "title": "Page Id",
+                      "help": "Enter the ID's of pages you would like introJS to be enabled.",
+                      "inputType": "Text",
+                      "validators": []
+                    }
+                  }
                 },
                 "_steps": {
                   "type": "array",
