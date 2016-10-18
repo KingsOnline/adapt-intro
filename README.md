@@ -1,7 +1,7 @@
 # Adapt-Intro
 ![alt tag](http://g.recordit.co/x2E4OcTSKp.gif)
 
-An extension that uses [intro.js](http://introjs.com/) with Adapt to present an overlay to be displayed explaining how the elements of a course are used. Recommended for larger courses or large courses where learners will be spending lots of time in Adapt. Works with Authoring Tool and Framework.
+An extension that uses [intro.js](http://introjs.com/) v2.3.0 with Adapt to present an overlay to be displayed explaining how the elements of a course are used. Recommended for larger courses or large courses where learners will be spending lots of time in Adapt. Works with Authoring Tool and Framework.
 
 ## Instructions
 This extension targets elements by class name so you need to find out the name of the class of each element you want to target. You can do this by going into your web browsers developer tools. Press `F12` on PC, or `command alt i` on Mac. You can also right click elements on the page and inspect them.
