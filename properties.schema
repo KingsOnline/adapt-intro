@@ -30,14 +30,14 @@
             "_intro": {
               "type": "object",
               "required": false,
-              "legend": "IntroJs",
+              "legend": "Intro",
               "properties": {
                 "_isEnabled": {
                   "type": "boolean",
                   "default": true,
                   "title": "Enable Intro",
                   "inputType": "Checkbox",
-                  "help": "Enable IntroJs globally"
+                  "help": "Enable Intro globally"
                 },
                 "_showOn": {
                   "type": "array",

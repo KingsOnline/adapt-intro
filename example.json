@@ -1,6 +1,12 @@
 //course.json
 "_intro": {
   "_isEnabled": true,
+  "_showOn": [
+    "co-05"
+  ],
+  "_options": {
+      "exitOnOverlayClick": "false"
+  },
   "_steps": [
     {
       "_element": "page-level-progress-navigation",
@@ -10,5 +16,6 @@
       "_element": "b-05",
       "text": "This is your content.<br><br><strong>Scroll down the page to begin</strong>"
     }
-  ]
+  ],
+
 }
