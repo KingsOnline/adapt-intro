@@ -53,20 +53,6 @@
                     }
                   }
                 },
-                "_options": {
-                  "type": "object",
-                  "required": false,
-                  "title": "Only show on these pages",
-                  "help": "Enter the ID's of pages you would like intro to be shown. If empty will be shown on all pages.",
-                  "items": {
-                    "_pageId": {
-                      "type": "string",
-                      "require": false,
-                      "inputType": "Text",
-                      "validators": []
-                    }
-                  }
-                },
                 "_steps": {
                   "type": "array",
                   "required": false,
