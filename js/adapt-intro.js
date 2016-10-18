@@ -22,10 +22,8 @@ define([ "coreJS/adapt", "./intro" ], function(Adapt, introJs) {
         startIntro: function(){
           var introPath = Adapt.course.attributes._intro;
             this.getElements(introPath);
-            console.log(introPath._options);
             $('.navigation-intro').attr('disabled',true); // prevents the button being pressed again during introduction.
             introJs().setOptions(introPath._options).start().oncomplete(function() {
-              console.log(introJs());
               $('.navigation-intro').attr('disabled',false);
             }).onexit(function() {
               $('.navigation-intro').attr('disabled',false);

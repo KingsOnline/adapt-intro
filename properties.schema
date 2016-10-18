@@ -43,11 +43,25 @@
                   "type": "array",
                   "required": false,
                   "items": {
+                    "title": "Only show on these pages",
+                    "help": "Enter the ID's of pages you would like intro to be shown. If empty will be shown on all pages.",
                     "_pageId": {
                       "type": "string",
                       "require": false,
-                      "title": "Page Id",
-                      "help": "Enter the ID's of pages you would like introJS to be enabled.",
+                      "inputType": "Text",
+                      "validators": []
+                    }
+                  }
+                },
+                "_options": {
+                  "type": "object",
+                  "required": false,
+                  "items": {
+                    "title": "Only show on these pages",
+                    "help": "Enter the ID's of pages you would like intro to be shown. If empty will be shown on all pages.",
+                    "_pageId": {
+                      "type": "string",
+                      "require": false,
                       "inputType": "Text",
                       "validators": []
                     }

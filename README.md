@@ -17,7 +17,7 @@ To start the tutorial press the '?' icon.
 
 **_steps** - array of objects - required - Array of elements which should be selected for adapt-intro.
 
-**_options** - object - optional - Choose certain options to be enabled in your course. Documented [here](https://github.com/usablica/intro.js/wiki/Documentation#options). If empty no options applied.
+**_options** - object - optional - Choose certain options to be enabled in your course. Documented [here](https://github.com/usablica/intro.js/wiki/Documentation#options). If empty no options applied. Not currently supported in the Authoring Tool :(
 
 **_showOn** - array of strings - optional - Array of content objects that should enable adapt-intro icon. If empty shows on all pages.
 
@@ -28,3 +28,4 @@ To start the tutorial press the '?' icon.
 ## Todo
 * Enable clicking of buttons to show the functionality further (e.g clicking PLP to expand the bar and then showing it as a tutorial).
 * Option to start the tutorial without pressing the icon.
+* Get options working in AT
