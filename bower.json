@@ -15,5 +15,6 @@
   ],
   "license": "GPL-3.0",
   "homepage": "https://github.com/KingsOnline/adapt-intro",
+  "issues": "https://github.com/KingsOnline/adapt-intro/issues",
   "targetAttribute": "_intro"
 }
