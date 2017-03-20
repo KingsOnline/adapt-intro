@@ -42,8 +42,7 @@
                 "_showOn": {
                   "type": "array",
                   "required": false,
-                  "title": "Enter the Content object ID's of pages you would like intro to be shown",
-                  "help": "If empty will be shown on all pages.",
+                  "title": "Enter the Content object ID's of pages you would like intro to be shown. Leave empty to show on all pages",
                   "items": {
                     "_pageId": {
                       "type": "string",
