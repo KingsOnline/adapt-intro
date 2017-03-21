@@ -36,8 +36,7 @@
                   "type": "boolean",
                   "default": true,
                   "title": "Enable Intro",
-                  "inputType": "Checkbox",
-                  "help": "Enable Intro globally"
+                  "inputType": "Checkbox"
                 },
                 "_showOn": {
                   "type": "array",
@@ -52,6 +51,13 @@
                     }
                   }
                 },
+                "_showOnMenu": {
+                  "type": "boolean",
+                  "default": true,
+                  "title": "Show on Menu",
+                  "inputType": "Checkbox",
+                  "help": "Enable to show on the menu page."
+                },
                 "_steps": {
                   "type": "array",
                   "required": false,
@@ -60,18 +66,20 @@
                     "type": "object",
                     "required": false,
                     "title": "Items",
+                    "help": "A step will only appear if it exists on the current page",
                     "properties": {
                       "_element": {
                         "type": "string",
                         "require": false,
                         "title": "Element",
+                        "help": "You can discover this by using the 'Inspect' in your web browser",
                         "inputType": "Text",
                         "validators": []
                       },
                       "text": {
                         "type": "string",
                         "require": false,
-                        "title": "Text that should display here",
+                        "title": "Text",
                         "inputType": "Text",
                         "validators": [],
                         "translatable": true
