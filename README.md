@@ -13,7 +13,7 @@ Intro.js will navigate through elements in DOM order.
 To start the tutorial press the '?' icon.
 
 ## Attributes
-**_isEnabled** - boolean - required - Set to false to turn off extension.
+**_isEnabled** - boolean - required - Set to true to enable the extension.
 
 **_steps** - array of objects - required - Array of elements which should be selected for adapt-intro.
 
@@ -21,8 +21,10 @@ To start the tutorial press the '?' icon.
 
 **_showOn** - array of strings - optional - Array of content objects that should enable adapt-intro icon. If empty shows on all pages.
 
+**_showOnMenu** - Boolean - optional - Set to true to enable the extension on the menu page.
+
 ## Pro tips
-* Add a adapt-intro.less file to your theme to allow you to easily customize the introduction to match your look and style.
+* Add a adapt-intro.less file to your theme to allow you to easily customise the introduction to match your look and style.
 * Use the option `exitOnOverlayClick: true` to prevent learners leaving the tutorial by accidentally click out.
 
 ## Todo
