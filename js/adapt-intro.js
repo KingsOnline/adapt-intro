@@ -1,68 +1,70 @@
 define(["coreJS/adapt", "./intro"], function(Adapt, introJs) {
 
-    var IntroView = Backbone.View.extend({
+  var IntroView = Backbone.View.extend({
 
-        initialize: function() {
-            var data = this.model.toJSON();
-            var template = Handlebars.templates.intro;
-            this.setElement(template(data)).$el.appendTo($(".navigation-inner"));
-            this.listenTo(Adapt, {
-                "navigation:openIntro": this.startIntro
-            });
-        },
+    initialize: function() {
+      var data = this.model.toJSON();
+      var template = Handlebars.templates.intro;
+      this.setElement(template(data)).$el.appendTo($(".navigation-inner"));
+      this.listenTo(Adapt, {
+        "navigation:openIntro": this.startIntro
+      });
+    },
 
-        getElements: function(path) {
-            if (path._isEnabled && path._steps[0] != null) {
-                for (i = 0; i < path._steps.length; i++) {
-                    this.assignIntro(path._steps[i]._element, path._steps[i].text);
-                }
-            }
-        },
-
-        startIntro: function() {
-            var introPath = Adapt.course.attributes._intro;
-            this.getElements(introPath);
-            $('.navigation-intro').attr('disabled', true); // prevents the button being pressed again during introduction.
-            introJs().setOptions(introPath._options).start().oncomplete(function() {
-                $('.navigation-intro').attr('disabled', false);
-            }).onexit(function() {
-                $('.navigation-intro').attr('disabled', false);
-            });
-        },
-
-        assignIntro: function(className, text) {
-            var h1 = document.getElementsByClassName(className)[0];
-            if (h1 === undefined) return;
-            var att = document.createAttribute("data-intro");
-            att.value = text;
-            h1.setAttributeNode(att);
+    getElements: function(path) {
+      if (path._isEnabled && path._steps[0] != null) {
+        for (i = 0; i < path._steps.length; i++) {
+          this.assignIntro(path._steps[i]._element, path._steps[i].text);
         }
-    });
+      }
+    },
 
-    Adapt.on("pageView:preRender", function() {
-        if (this.course.attributes._intro._showOn != undefined && this.course.attributes._intro._showOn.length > 0 && jQuery.inArray(this.location._currentId, this.course.attributes._intro._showOn) === -1) { // if not defined assume all pages
-            $('.navigation-intro').hide();
-        } else {
-            showOrCreate();
-        }
-    });
+    startIntro: function() {
+      var introPath = Adapt.course.attributes._intro;
+      this.getElements(introPath);
+      $('.navigation-intro').attr('disabled', true); // prevents the button being pressed again during introduction.
+      introJs().setOptions(introPath._options).start().oncomplete(function() {
+        $('.navigation-intro').attr('disabled', false);
+      }).onexit(function() {
+        $('.navigation-intro').attr('disabled', false);
+      });
+    },
 
-    Adapt.on('menuView:preRender', function() { // hide on menu
-        if (this.course.attributes._intro._showOn != undefined && this.course.attributes._intro._showOn.length > 0 && !(this.course.attributes._intro._showOnMenu == true)) { // if not defined assume all pages
-            $('.navigation-intro').hide();
-        } else {
-            showOrCreate();
-        }
-    });
-
-    function showOrCreate() {
-        if ($('.navigation-intro').length) { // If you have been on a page before show.
-            $('.navigation-intro').show();
-        } else { // create the element when you load into your first page.
-            if (Adapt.course.get("_intro") == undefined) return;
-            new IntroView({
-                model: new Backbone.Model()
-            });
-        }
+    assignIntro: function(className, text) {
+      var h1 = document.getElementsByClassName(className)[0];
+      if (h1 === undefined) return;
+      var att = document.createAttribute("data-intro");
+      att.value = text;
+      h1.setAttributeNode(att);
     }
+  });
+
+  Adapt.on("pageView:preRender", function() {
+    if (!Adapt.course.get("_intro")) return;
+    console.log(Adapt.device);
+    if (!this.course.attributes._intro._showOn || jQuery.inArray(this.location._currentId, this.course.attributes._intro._showOn) === -1 || (Adapt.device.screenWidth <= 900 && !this.course.attributes._intro._showOnMobile)) { // if not defined assume all pages
+      $('.navigation-intro').hide();
+    } else {
+      showOrCreate();
+    }
+  });
+
+  Adapt.on('menuView:preRender', function() { // hide on menu
+    if (Adapt.course.get("_intro") == undefined) return;
+    if (!this.course.attributes._intro._showOn || !this.course.attributes._intro._showOnMenu || (Adapt.device.screenWidth <= 900 && !this.course.attributes._intro._showOnMobile)) { // if not defined assume all pages
+      $('.navigation-intro').hide();
+    } else {
+      showOrCreate();
+    }
+  });
+
+  function showOrCreate() {
+    if ($('.navigation-intro').length) { // If you have been on a page before show.
+      $('.navigation-intro').show();
+    } else { // create the element when you load into your first page.
+      new IntroView({
+        model: new Backbone.Model()
+      });
+    }
+  }
 });
