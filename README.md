@@ -1,5 +1,5 @@
 # Adapt-Intro
-![alt tag](http://g.recordit.co/x2E4OcTSKp.gif)
+![Example of intro being used](https://raw.githubusercontent.com/KingsOnline/repo-files/master/adapt-intro.gif)
 
 An extension that uses [intro.js](http://introjs.com/) v2.3.0 with Adapt to present an overlay to be displayed explaining how the elements of a course are used. Recommended for larger courses or large courses where learners will be spending lots of time in Adapt. Works with Authoring Tool and Framework.
 
