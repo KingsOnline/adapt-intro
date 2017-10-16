@@ -41,7 +41,6 @@ define(["coreJS/adapt", "./intro"], function(Adapt, introJs) {
 
   Adapt.on("pageView:preRender", function() {
     if (!Adapt.course.get("_intro")) return;
-    console.log(Adapt.device);
     if (!this.course.attributes._intro._showOn || jQuery.inArray(this.location._currentId, this.course.attributes._intro._showOn) === -1 || (Adapt.device.screenWidth <= 900 && !this.course.attributes._intro._showOnMobile)) { // if not defined assume all pages
       $('.navigation-intro').hide();
     } else {
