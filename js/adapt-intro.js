@@ -41,15 +41,15 @@ define([
   });
 
   Adapt.on("pageView:preRender", function() {
-    if (!Adapt.course.get("_intro")) 
+    if (!Adapt.course.get("_intro"))
       return;
     showOrCreate();
   });
 
   Adapt.on('menuView:preRender', function() { // hide on menu
-    if (Adapt.course.get("_intro") == undefined)
+    if (!Adapt.course.get("_intro"))
       return;
-    if (!this.course.attributes._intro._showOn || !this.course.attributes._intro._showOnMenu || (Adapt.device.screenWidth <= 900 && !this.course.attributes._intro._showOnMobile)) { // if not defined assume all pages
+    if (!this.course.attributes._intro._showOnMenu) {
       $('.navigation-intro').hide();
     } else {
       showOrCreate();
