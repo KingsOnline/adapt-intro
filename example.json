@@ -4,7 +4,7 @@
   "_showOn": [
     "co-05"
   ],
-  "_showOnMenu": true,
+  "_showOnMenu": false,
   "_options": {
     "exitOnOverlayClick": "false"
   },

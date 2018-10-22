@@ -43,11 +43,15 @@
                   "required": false,
                   "title": "Enter the Content object ID's of pages you would like intro to be shown. Leave empty to show on all pages",
                   "items": {
-                    "_pageId": {
-                      "type": "string",
-                      "require": false,
-                      "inputType": "Text",
-                      "validators": []
+                    "type": "object",
+                    "required": false,
+                    "properties": {
+                      "_pageId": {
+                        "type": "string",
+                        "require": false,
+                        "inputType": "Text",
+                        "validators": []
+                      }
                     }
                   }
                 },
