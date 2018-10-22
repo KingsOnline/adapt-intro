@@ -39,21 +39,20 @@
                   "inputType": "Checkbox"
                 },
                 "_showOn": {
-                  "type": "array",
-                  "required": false,
-                  "title": "Enter the Content object ID's of pages you would like intro to be shown. Leave empty to show on all pages",
-                  "items": {
-                    "type": "object",
-                    "required": false,
-                    "properties": {
-                      "_pageId": {
+                    "type": "array",
+                    "required": true,
+                    "title": "Pages to show own",
+                    "help": "leave blank to show on all pages",
+                    "items": {
                         "type": "string",
-                        "require": false,
+                        "required": true,
+                        "default": "",
+                        "title": "Page",
                         "inputType": "Text",
-                        "validators": []
-                      }
+                        "validators": ["required"],
+                        "help": "Enter the Page ID. Click the cog to copy this",
+                        "translatable": true
                     }
-                  }
                 },
                 "_showOnMenu": {
                   "type": "boolean",
