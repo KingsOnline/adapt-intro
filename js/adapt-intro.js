@@ -1,4 +1,6 @@
-define(["coreJS/adapt", "./intro"], function(Adapt, introJs) {
+define([
+  "coreJS/adapt", "./intro"
+], function(Adapt, introJs) {
 
   var IntroView = Backbone.View.extend({
 
@@ -6,9 +8,7 @@ define(["coreJS/adapt", "./intro"], function(Adapt, introJs) {
       var data = this.model.toJSON();
       var template = Handlebars.templates.intro;
       this.setElement(template(data)).$el.appendTo($(".navigation-inner"));
-      this.listenTo(Adapt, {
-        "navigation:openIntro": this.startIntro
-      });
+      this.listenTo(Adapt, {"navigation:openIntro": this.startIntro});
     },
 
     getElements: function(path) {
@@ -32,7 +32,8 @@ define(["coreJS/adapt", "./intro"], function(Adapt, introJs) {
 
     assignIntro: function(className, text) {
       var h1 = document.getElementsByClassName(className)[0];
-      if (h1 === undefined) return;
+      if (h1 === undefined)
+        return;
       var att = document.createAttribute("data-intro");
       att.value = text;
       h1.setAttributeNode(att);
@@ -40,16 +41,14 @@ define(["coreJS/adapt", "./intro"], function(Adapt, introJs) {
   });
 
   Adapt.on("pageView:preRender", function() {
-    if (!Adapt.course.get("_intro")) return;
-    if (!this.course.attributes._intro._showOn || jQuery.inArray(this.location._currentId, this.course.attributes._intro._showOn) === -1 || (Adapt.device.screenWidth <= 900 && !this.course.attributes._intro._showOnMobile)) { // if not defined assume all pages
-      $('.navigation-intro').hide();
-    } else {
-      showOrCreate();
-    }
+    if (!Adapt.course.get("_intro")) 
+      return;
+    showOrCreate();
   });
 
   Adapt.on('menuView:preRender', function() { // hide on menu
-    if (Adapt.course.get("_intro") == undefined) return;
+    if (Adapt.course.get("_intro") == undefined)
+      return;
     if (!this.course.attributes._intro._showOn || !this.course.attributes._intro._showOnMenu || (Adapt.device.screenWidth <= 900 && !this.course.attributes._intro._showOnMobile)) { // if not defined assume all pages
       $('.navigation-intro').hide();
     } else {
@@ -61,9 +60,7 @@ define(["coreJS/adapt", "./intro"], function(Adapt, introJs) {
     if ($('.navigation-intro').length) { // If you have been on a page before show.
       $('.navigation-intro').show();
     } else { // create the element when you load into your first page.
-      new IntroView({
-        model: new Backbone.Model()
-      });
+      new IntroView({model: new Backbone.Model()});
     }
   }
 });

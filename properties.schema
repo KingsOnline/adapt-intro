@@ -38,22 +38,6 @@
                   "title": "Enable Intro",
                   "inputType": "Checkbox"
                 },
-                "_showOn": {
-                    "type": "array",
-                    "required": true,
-                    "title": "Pages to show own",
-                    "help": "leave blank to show on all pages",
-                    "items": {
-                        "type": "string",
-                        "required": true,
-                        "default": "",
-                        "title": "Page",
-                        "inputType": "Text",
-                        "validators": ["required"],
-                        "help": "Enter the Page ID. Click the cog to copy this",
-                        "translatable": true
-                    }
-                },
                 "_showOnMenu": {
                   "type": "boolean",
                   "default": true,
