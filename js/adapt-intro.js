@@ -41,13 +41,13 @@ define([
   });
 
   Adapt.on("pageView:preRender", function() {
-    if (!Adapt.course.get("_intro"))
+    if (!Adapt.course.get("_intro") || !Adapt.course.get("_intro")._isEnabled)
       return;
     showOrCreate();
   });
 
   Adapt.on('menuView:preRender', function() { // hide on menu
-    if (!Adapt.course.get("_intro"))
+    if (!Adapt.course.get("_intro") || !Adapt.course.get("_intro")._isEnabled)
       return;
     if (!this.course.attributes._intro._showOnMenu) {
       $('.navigation-intro').hide();
