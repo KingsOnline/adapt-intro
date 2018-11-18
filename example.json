@@ -10,9 +10,11 @@
   },
   "_steps": [{
     "_element": "page-level-progress-navigation",
-    "text": "This is the Page Level Progress bar"
+    "text": "This is the Page Level Progress bar",
+    "_position": "bottom"
   }, {
     "_element": "b-05",
-    "text": "This is your content.<br><br><strong>Scroll down the page to begin</strong>"
+    "text": "This is your content.<br><br><strong>Scroll down the page to begin</strong>",
+    "_position": "right"
   }]
 }
