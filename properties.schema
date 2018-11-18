@@ -70,6 +70,14 @@
                         "inputType": "Text",
                         "validators": [],
                         "translatable": true
+                      },
+                      "_position": {
+                        "type": "string",
+                        "require": false,
+                        "title": "Text",
+                        "inputType": {"type": "Select", "options":["hidden", "visible"]},
+                        "enum": ["hidden", "visible"],
+                        "translatable": false
                       }
                     }
                   }

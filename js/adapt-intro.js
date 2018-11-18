@@ -8,14 +8,15 @@ define([
       var data = this.model.toJSON();
       var template = Handlebars.templates.intro;
       this.setElement(template(data)).$el.appendTo($(".navigation-inner"));
-      this.listenTo(Adapt, {"navigation:openIntro": this.startIntro});
+      this.listenTo(Adapt, {
+        "navigation:openIntro": this.startIntro
+      });
     },
 
     getElements: function(path) {
-      if (path._isEnabled && path._steps[0] != null) {
-        for (i = 0; i < path._steps.length; i++) {
-          this.assignIntro(path._steps[i]._element, path._steps[i].text);
-        }
+      if (!path._isEnabled || !path._steps[0]) return;
+      for (i = 0; i < path._steps.length; i++) {
+        this.assignIntro(path._steps[i]._element, path._steps[i].text, i + 1, path._steps[i]._position);
       }
     },
 
@@ -30,13 +31,19 @@ define([
       });
     },
 
-    assignIntro: function(className, text) {
-      var h1 = document.getElementsByClassName(className)[0];
-      if (h1 === undefined)
-        return;
-      var att = document.createAttribute("data-intro");
-      att.value = text;
-      h1.setAttributeNode(att);
+    assignIntro: function(className, text, introOrder, introPosition) {
+      var htmlElement = document.getElementsByClassName(className)[0];
+      if (!htmlElement) return;
+      var introText = document.createAttribute("data-intro");
+      introText.value = text;
+      var step = document.createAttribute("data-step");
+      step.value = introOrder;
+      var position = document.createAttribute("data-position");
+      position.value = introPosition;
+      htmlElement.setAttributeNode(step);
+      htmlElement.setAttributeNode(position);
+      htmlElement.setAttributeNode(introText);
+      console.log(htmlElement)
     }
   });
 
@@ -60,7 +67,9 @@ define([
     if ($('.navigation-intro').length) { // If you have been on a page before show.
       $('.navigation-intro').show();
     } else { // create the element when you load into your first page.
-      new IntroView({model: new Backbone.Model()});
+      new IntroView({
+        model: new Backbone.Model()
+      });
     }
   }
 });
