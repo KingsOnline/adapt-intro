@@ -23,12 +23,7 @@ define([
     startIntro: function() {
       var introPath = Adapt.course.attributes._intro;
       this.getElements(introPath);
-      $('.navigation-intro').attr('disabled', true); // prevents the button being pressed again during introduction.
-      introJs().setOptions(introPath._options).start().oncomplete(function() {
-        $('.navigation-intro').attr('disabled', false);
-      }).onexit(function() {
-        $('.navigation-intro').attr('disabled', false);
-      });
+      introJs().setOptions(introPath._options).start();
     },
 
     assignIntro: function(className, text, introOrder, introPosition) {
